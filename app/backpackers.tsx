@@ -1,61 +1,58 @@
-import React, { useState } from "react";
+// app/backpackers.tsx
+import React from "react";
 import {
   FlatList,
+  Image,
   SafeAreaView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import { BottomNav } from "../components/BottomNav";
+import { useBackpackers } from "../context/BackpackerContext";
 
 const COLORS = {
   bg: "#F9F7F2",
   text: "#6C5430",
-  accent: "#B77A3F",
 };
 
 export default function BackpackersScreen() {
-  const [backpackers, setBackpackers] = useState<string[]>(["Backpacker #1"]);
-  const [count, setCount] = useState(2);
-
-  const addBackpacker = () => {
-    setBackpackers((prev) => [...prev, `Backpacker #${count}`]);
-    setCount((n) => n + 1);
-  };
+  const { backpackers } = useBackpackers();
 
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.header}>
         <Text style={styles.title}>Backpackers</Text>
-        <Text style={styles.subtitle}>People you’ve met on the road</Text>
+        <Text style={styles.subtitle}>
+          People you’ve added from the map camera
+        </Text>
       </View>
 
       <View style={styles.listWrapper}>
         <FlatList
           data={backpackers}
-          keyExtractor={(item) => item}
+          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.card}>
-              <Text style={styles.cardEmoji}>🙂</Text>
-              <View>
-                <Text style={styles.cardName}>{item}</Text>
-                <Text style={styles.cardMeta}>Tap to view story</Text>
+              <Image source={{ uri: item.photoUri }} style={styles.avatar} />
+              <View style={{ flex: 1 }}>
+                <Text style={styles.cardName}>{item.name}</Text>
+                <Text style={styles.cardMeta}>{item.fromCountry}</Text>
+                {item.phone && (
+                  <Text style={styles.cardMetaSmall}>{item.phone}</Text>
+                )}
               </View>
             </View>
           )}
           ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
           ListEmptyComponent={
-            <Text style={styles.empty}>No backpackers yet. Add your first one.</Text>
+            <Text style={styles.empty}>
+              No backpackers yet. Add one from the map using the + button.
+            </Text>
           }
           contentContainerStyle={{ paddingVertical: 8 }}
         />
       </View>
-
-      {/* Add person pill */}
-      <TouchableOpacity style={styles.addButton} onPress={addBackpacker}>
-        <Text style={styles.addText}>＋ Add Person</Text>
-      </TouchableOpacity>
 
       <BottomNav active="backpackers" />
     </SafeAreaView>
@@ -100,8 +97,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2,
   },
-  cardEmoji: {
-    fontSize: 26,
+  avatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     marginRight: 10,
   },
   cardName: {
@@ -110,32 +109,17 @@ const styles = StyleSheet.create({
     color: COLORS.text,
   },
   cardMeta: {
-    fontSize: 12,
+    fontSize: 13,
     color: "#A49A8D",
     marginTop: 2,
+  },
+  cardMetaSmall: {
+    fontSize: 12,
+    color: "#B0A597",
   },
   empty: {
     textAlign: "center",
     marginTop: 40,
     color: "#A0A0A0",
-  },
-  addButton: {
-    position: "absolute",
-    bottom: 100,
-    alignSelf: "center",
-    paddingHorizontal: 24,
-    paddingVertical: 10,
-    borderRadius: 22,
-    backgroundColor: COLORS.accent,
-    shadowColor: "#000",
-    shadowOpacity: 0.18,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 6,
-    elevation: 4,
-  },
-  addText: {
-    color: "#fff",
-    fontWeight: "600",
-    fontSize: 14,
   },
 });
