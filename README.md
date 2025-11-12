@@ -1,50 +1,50 @@
-# Welcome to your Expo app 👋
+# 🏝️ Backpacker
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**A startup by:**  
+**Hadi Shanneik**, **Patrik Nasr**, and **Joseph Saada**
 
-## Get started
+---
 
-1. Install dependencies
+## 🌍 About the Project
 
-   ```bash
-   npm install
-   ```
+**Backpacker** is a social travel app that captures the real human connections made on the road.  
+It’s designed for travelers who move between hostels, cities, and countries — people who build friendships through shared journeys rather than algorithms.
 
-2. Start the app
+Instead of adding friends online, Backpacker connects people through real-world encounters. When two travelers meet and take a picture together, that moment is saved to an interactive map, showing where and with whom those memories were made. Each pin represents a person, a place, and a story.
 
-   ```bash
-   npx expo start
-   ```
+The goal is to make travel memories **tangible** again — not just a gallery of photos, but a living map of human connections.
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## ✈️ What We’re Building
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+We’re creating a platform where every encounter has a place and every traveler has a story.  
+Backpacker bridges **social connection** and **location memory**, allowing users to keep track of the people they meet, the places they’ve been, and the shared experiences that shape their journeys.
 
-## Get a fresh project
+This isn’t another social network — it’s a **map of relationships** built through real experiences.
 
-When you're ready, run:
+---
 
-```bash
-npm run reset-project
-```
+## 🚀 Our Vision
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Travel has always been about people — the strangers who become friends, and the moments that make a trip unforgettable.  
+Over time, those memories fade, and so do the details of who and where. Backpacker brings those encounters back to life.
 
-## Learn more
+Our vision is to build the **world’s first social map for travelers**, a digital space that celebrates community, connection, and exploration.  
 
-To learn more about developing your project with Expo, look at the following resources:
+We believe that every traveler deserves a way to remember **who they met, where they met, and why it mattered.**
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
+## ⚙️ Built With
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- React Native (Expo)
+- TypeScript
+- React Context for global state
+- Map and camera integration for capturing travel encounters
+
+---
+
+
+
